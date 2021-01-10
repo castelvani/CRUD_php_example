@@ -4,7 +4,7 @@ jQuery(document).ready(function () {
         const titulo = jQuery("#titulo_item").val();
         const categoria = jQuery("#categoria_item").val();
         const descricao = jQuery("#descricao_item").val();
-        if((titulo.length & descricao.length) > 0){
+        if(titulo.length > 0 && descricao.length > 0){
             cadastrar_item(titulo, categoria, descricao);
         }else{
             alert('Campos obrigatórios estão vazios!');
