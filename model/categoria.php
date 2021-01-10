@@ -1,6 +1,7 @@
 <?php
 
-class categoria{
+class categoria  implements JsonSerializable{
+    
     private $id;
     private $nome;
 
@@ -13,7 +14,7 @@ class categoria{
     {
         $this->id = $id;
     }
-    
+
     public function getNome()
     {
         return $this->nome;
@@ -22,5 +23,14 @@ class categoria{
     public function setNome($nome)
     {
         $this->nome = $nome;
+    }
+
+    public function jsonSerialize()
+    {
+        return 
+        [
+            'id'   => $this->getId(),
+            'nome' => $this->getNome()
+        ];
     }
 }

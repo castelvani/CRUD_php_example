@@ -17,8 +17,8 @@ require_once('ui/footer.php');
                         <div class="container card card_custom">
                             <div class="card-body">
                                 <h5 class="card-title">Sobre o projeto</h5>
-                                <p class="card-text">Site em PHP com demonstração de CRUD (Create, Read, Update e Delete), utilizando MySQL, CSS, HTML, Bootstrap 4
-                                    e programação orientada a objetos utilizando arquitetura MVC (Model, View, Controller)</p>
+                                <p class="card-text">Site em PHP com demonstração de CRUD (Create, Read, Update e Delete), utilizando MySQL, CSS, HTML, Bootstrap 4, 
+                                jQuery, Ajax e programação orientada a objetos utilizando arquitetura MVC (Model, View, Controller) com padrões de projeto.</p>
                             </div>
                         </div>
                     </div>

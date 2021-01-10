@@ -1,6 +1,6 @@
 <?php
 
-class item
+class item implements JsonSerializable
 {
     private $id;
     private $titulo;
@@ -34,5 +34,15 @@ class item
     public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
-    }    
+    }
+
+    public function jsonSerialize()
+    {
+        return 
+        [
+            'id'   => $this->getId(),
+            'titulo' => $this->getTitulo(),
+            'descricao' => $this->getDescricao()
+        ];
+    }
 }

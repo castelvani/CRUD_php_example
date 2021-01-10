@@ -60,3 +60,7 @@ body{
     border-bottom: 2px solid black;
     width: 30%;
 }
+
+.remove_custom{
+    float: right;
+}

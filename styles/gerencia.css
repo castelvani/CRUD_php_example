@@ -1,0 +1,15 @@
+h3{
+   text-align: center;
+}
+
+.btn_apagar{
+    color: crimson;
+}
+
+.btn_apagar:hover{
+    cursor: pointer;
+}
+
+.categoria_nula{
+    text-align: center;
+}
