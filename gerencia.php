@@ -22,7 +22,7 @@ require_once('ui/header.php');
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Nome</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Gerencia</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tabela_categoria">
@@ -36,5 +36,7 @@ require_once('ui/header.php');
         </div>
     </div>
 </div>
-<script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
+<?php
+require_once('ui/footer.php');
+?>
 <script src="scripts/categoria.js" type="text/javascript"></script>

@@ -4,12 +4,18 @@ jQuery(document).ready(function () {
         const titulo = jQuery("#titulo_item").val();
         const categoria = jQuery("#categoria_item").val();
         const descricao = jQuery("#descricao_item").val();
-        if(titulo.length > 0 && descricao.length > 0){
+        if (titulo.length > 0 && descricao.length > 0) {
             cadastrar_item(titulo, categoria, descricao);
-        }else{
-            alert('Campos obrigatórios estão vazios!');
+        } else {
+            avisar('Campos obrigatórios estão vazios!');
         }
-        
+    })
+
+    jQuery(".custom_nav_link").on("click", function () {
+        carregar_categorias();
+        jQuery("#titulo_item").val('');
+        jQuery("#descricao_item").val('');
+        jQuery("#nome_categoria").val('');
     })
 });
 
@@ -27,17 +33,13 @@ function cadastrar_item(titulo, categoria, descricao) {
             if (e.readyState == 4 && e.status == 200) {
                 try {
                     var msg = (e.responseText);
-                    mensagem = msg;
                 } catch (err) {
                     console.log(err);
                 }
-
+                avisar(msg);
             } else {
                 console.log("erro " + e.status);
             }
-        },
-        success: function (e) {
-            alert("Item cadastrado com sucesso!");
         }
     });
 }
@@ -50,9 +52,6 @@ function carregar_categorias() {
         data: {
             opcao: 'consultar'
         },
-        beforeSend: function () {
-            jQuery("#categoria_item").html('');
-        },
         complete: function (e, xhr, result) {
             if (e.readyState == 4 && e.status == 200) {
                 try {
@@ -63,18 +62,14 @@ function carregar_categorias() {
                 }
                 if (Obj != null) {
                     var categorias = Obj;
-
+                    jQuery("#categoria_item").html('');
                     categorias.map(categorias => {
                         jQuery("#categoria_item").append(`
                         <option value="${categorias.id}">${categorias.nome}</option>
                         `);
-                    })
 
-                if(categorias.length == 0){
-                    jQuery("#categoria_item").append(`
-                        <option value="na">N/A</option>
-                    `);
-                }
+                        jQuery("#categoria_item").removeAttr("disabled");
+                    })
 
                 } else {
                 }

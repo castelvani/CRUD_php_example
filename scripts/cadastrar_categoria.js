@@ -5,9 +5,13 @@ jQuery(document).ready(function () {
         if (nome_categoria.length > 0) {
             cadastrar_categoria(nome_categoria);
         } else {
-            alert('Campos obrigatórios estão vazios!');
+            avisar('Campos obrigatórios estão vazios!');
         }
     });
+
+    jQuery(".custom_nav_link").on("click", function () {
+        carregar_categorias();
+    })
 });
 
 function cadastrar_categoria(nome_categoria) {
@@ -25,7 +29,7 @@ function cadastrar_categoria(nome_categoria) {
                 } catch (err) {
                     console.log(err);
                 }
-
+                avisar(msg)
             } else {
                 console.log("erro " + e.status);
             }

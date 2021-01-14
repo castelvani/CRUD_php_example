@@ -21,9 +21,10 @@ switch ($opcao) {
             $categoriaDAO = new categoriaDAO();
 
             if ($nome_categoria != null) {
-                $resultado_dao = $categoriaDAO->cadastrar_categoria($nome_categoria);
+                $categoriaDAO->cadastrar_categoria($nome_categoria);
+                $resultado_dao = "Categoria cadastrada com sucesso!";
             } else {
-                $resultado_dao = "Valor nulo";
+                $resultado_dao = "Campos obrigatórios estão vazios!";
             }
 
             echo ($resultado_dao);

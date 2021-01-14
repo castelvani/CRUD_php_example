@@ -12,7 +12,7 @@ require_once('dao/itemDAO.php');
         <div class="bloco_2">
             <form action="" method="POST">
                 <div class="row itens_mostrados">
-                </div>                
+                </div>
             </form>
         </div>
     </div>

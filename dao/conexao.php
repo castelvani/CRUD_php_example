@@ -3,7 +3,7 @@
 class Conexao{
     public function getConnection()
     {
-        $dsn = 'mysql:host=localhost;dbname=crud_php_example';
+        $dsn = 'mysql:host=localhost;dbname=id15886744_crud_php_example';
         $username = 'root';
         $password = '';
     

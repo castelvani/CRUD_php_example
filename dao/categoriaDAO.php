@@ -6,6 +6,7 @@ class categoriaDAO
     public function __construct()
     {
         require_once("../model/categoria.php");
+        require_once("itemDAO.php");
     }
 
     public function consultar_categoria()
@@ -35,10 +36,10 @@ class categoriaDAO
 
         $conexao = $con->getConnection();
         $stmt = $conexao->prepare('insert into categoria (nome) values (?)');
-        $stmt->bindParam(1,$nome_categoria);
-        if($stmt->execute()){
+        $stmt->bindParam(1, $nome_categoria);
+        if ($stmt->execute()) {
             return "Categoria inserida com sucesso!";
-        }else{
+        } else {
             return "Erro ao inserir categoria!";
         }
     }
@@ -47,14 +48,21 @@ class categoriaDAO
     {
         $con = new Conexao();
 
-        $conexao = $con->getConnection();
-        $stmt = $conexao->prepare('delete from categoria where id = ?');
-        $stmt->bindParam(1, $id_categoria);
-        if ($stmt->execute()) {
-            return "Categoria deletada com sucesso!";
-        } else {
-            return "Erro ao deletar categoria!";
-        }
-    }
+        $itemDAO = new itemDAO();
 
+        $verifica_item = $itemDAO->consultar_item_por_id_categoria($id_categoria);
+        
+        if(count($verifica_item) == 0){
+            $conexao = $con->getConnection();
+            $stmt = $conexao->prepare('delete from categoria where id = ?');
+            $stmt->bindParam(1, $id_categoria);
+            if ($stmt->execute()) {
+                return "Categoria deletada com sucesso!";
+            } else {
+                return "Erro ao deletar categoria!";
+            }
+        }else{
+            return "Erro";
+        }        
+    }
 }

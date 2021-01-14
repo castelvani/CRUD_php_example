@@ -27,7 +27,7 @@ function consultar_categoria() {
 
                     categorias.map(categorias => {
                         jQuery("#tabela_categoria").append(`
-                            <tr>        
+                            <tr>
                                 <td>${categorias.id}</td>
                                 <td>${categorias.nome}</td>
                                 <td><i type="submit" class="fas fa-trash btn_apagar id_${categorias.id}"></i></td>
@@ -70,7 +70,6 @@ function remover_categoria(id_categoria) {
                 } catch (err) {
                     console.log(err);
                 }
-
             } else {
                 console.log("erro " + e.status);
             }

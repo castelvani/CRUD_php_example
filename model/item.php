@@ -1,6 +1,6 @@
 <?php
-
-class item implements JsonSerializable
+require_once('../model/categoria.php');
+class item extends categoria implements JsonSerializable
 {
     private $id;
     private $titulo;
@@ -14,6 +14,16 @@ class item implements JsonSerializable
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
     }
 
     public function getTitulo()
@@ -42,7 +52,8 @@ class item implements JsonSerializable
         [
             'id'   => $this->getId(),
             'titulo' => $this->getTitulo(),
-            'descricao' => $this->getDescricao()
+            'descricao' => $this->getDescricao(),
+            'categoria' => $this->getNome()
         ];
     }
 }
